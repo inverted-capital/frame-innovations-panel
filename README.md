@@ -1,8 +1,6 @@
-# starter-widget
+# innovations-panel
 
-This repo demonstrates a minimal setup for building an Artifact widget. It loads
-and saves a custom `profile.json` file checked against a Zod schema. If the file
-is missing a default one is written automatically.
+This widget demonstrates how to display innovations stored in `innovations.json` inside an Artifact frame. If the file is missing a default set is written automatically.
 
 ## Development
 
@@ -16,18 +14,23 @@ npm run dev
 npm run build
 ```
 
-Load `dist/index.html` in an `ArtifactFrameHolder` to embed the widget inside
-another application.
+Load `dist/index.html` in an `ArtifactFrameHolder` to embed the widget inside another application.
 
 ### Data shape
 
-The profile data is defined in `src/types/account.ts`:
+The innovation data is defined in `src/types/innovation.ts`:
 
 ```ts
-export const accountDataSchema = z.object({
-  name: z.string()
+export const innovationSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string(),
+  repository: z.string(),
+  status: z.string(),
+  priority: z.string().optional(),
+  type: z.enum(['problem', 'solution']),
+  relatedItems: z.array(z.string()).optional(),
+  createdAt: z.string(),
+  updatedAt: z.string().optional()
 })
 ```
-
-The widget exposes a single input that edits this value and saves it back to
-`profile.json`.
