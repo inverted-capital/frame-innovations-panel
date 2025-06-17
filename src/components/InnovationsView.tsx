@@ -245,7 +245,7 @@ const InnovationsView: React.FC = () => {
 
   const renderFlatView = () => {
     return (
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 p-6">
         {sortedInnovations.map((item) => (
           <div
             key={item.id}
@@ -313,7 +313,7 @@ const InnovationsView: React.FC = () => {
   if (loading) return <p>Loading...</p>
 
   return (
-    <div className="animate-fadeIn">
+    <div className="p-6 animate-fadeIn">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold flex items-center">
           <Lightbulb className="mr-2" size={24} />
