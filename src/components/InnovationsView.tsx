@@ -383,7 +383,7 @@ const InnovationsView: React.FC = () => {
             )}
           </div>
 
-          <div className="flex border border-gray-200 rounded-md overflow-hidden">
+          <div className="flex border border-gray-200 rounded-md ">
             <button
               className={`px-3 py-2 ${viewMode === 'flat' ? 'bg-blue-50 text-blue-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}
               onClick={() => setViewMode('flat')}
